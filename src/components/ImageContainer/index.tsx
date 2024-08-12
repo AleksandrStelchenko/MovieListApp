@@ -2,7 +2,7 @@ import React from "react";
 import FastImage, { FastImageProps } from "react-native-fast-image";
 
 type ImageContainerProps = {
-  path?: string;
+  path?: string | null;
   original?: boolean;
 } & FastImageProps;
 

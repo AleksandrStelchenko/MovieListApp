@@ -20,7 +20,7 @@ export const fetchMoviesByTitle = async (query: string, page: number) => {
 
 export const fetchMovieDetails = async (id: number) => {
   const response = await Axios.get(
-    `movie/${id}?append_to_response=images&language=en%2Cnull`,
+    `movie/${id}?append_to_response=images%2Ccredits`,
   );
 
   return response.data as MovieDetails;

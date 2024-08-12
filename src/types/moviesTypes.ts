@@ -30,6 +30,7 @@ export interface MovieDetails extends Movie {
   status: string;
   tagline: string;
   images: Images;
+  credits: MovieCredits;
 }
 export interface BelongsToCollection {
   id: number;
@@ -58,7 +59,6 @@ export interface SpokenLanguagesEntity {
 }
 
 export interface MovieCredits {
-  id: number;
   cast?: CastEntity[] | null;
   crew?: CrewEntity[] | null;
 }
