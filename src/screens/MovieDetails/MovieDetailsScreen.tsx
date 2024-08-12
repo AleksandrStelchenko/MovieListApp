@@ -57,7 +57,7 @@ export const MovieDetailsScreen: React.FC<MovieDetailsScreenProps> = (
             <ImageContainer
               original
               resizeMode={"cover"}
-              path={details?.backdrop_path}
+              path={details?.poster_path}
               style={styles.image}
             />
             <View style={{ flex: 1, justifyContent: "space-between" }}>
