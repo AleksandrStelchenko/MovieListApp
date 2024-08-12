@@ -29,6 +29,7 @@ export interface MovieDetails extends Movie {
   spoken_languages?: SpokenLanguagesEntity[] | null;
   status: string;
   tagline: string;
+  images: Images;
 }
 export interface BelongsToCollection {
   id: number;
@@ -54,4 +55,52 @@ export interface SpokenLanguagesEntity {
   english_name: string;
   iso_639_1: string;
   name: string;
+}
+
+export interface MovieCredits {
+  id: number;
+  cast?: CastEntity[] | null;
+  crew?: CrewEntity[] | null;
+}
+export interface CastEntity {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path?: string | null;
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  order: number;
+}
+export interface CrewEntity {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path?: string | null;
+  credit_id: string;
+  department: string;
+  job: string;
+}
+
+export interface Images {
+  backdrops?: ImageEntity[];
+  logos?: ImageEntity[];
+  posters?: ImageEntity[];
+}
+export interface ImageEntity {
+  aspect_ratio: number;
+  height: number;
+  iso_639_1: string | null;
+  file_path: string;
+  vote_average: number;
+  vote_count: number;
+  width: number;
 }

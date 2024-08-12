@@ -10,7 +10,7 @@ export const MainNavigator = (): ReactElement => {
     createNativeStackNavigator<MainStackParamList>();
 
   return (
-    <Navigator>
+    <Navigator screenOptions={{ headerShown: false }}>
       <Screen name={Screens.Home} component={HomeScreenContainer} />
       <Screen name={Screens.MovieDetails} component={MovieDetailsContainer} />
     </Navigator>

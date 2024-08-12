@@ -1,2 +1,6 @@
 export { Axios } from "./axiosInstance";
-export { fetchMoviesByPage, fetchMoviesByTitle } from "./tmdbAPI";
+export {
+  fetchMoviesByPage,
+  fetchMoviesByTitle,
+  fetchMovieDetails,
+} from "./tmdbAPI";
