@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "paths": {
       "@screens/*": ["./src/screens/*"],
-      "@navigation/*": ["./src/navigation/*"]
+      "@navigation/*": ["./src/navigation/*"],
+      "@components": ["./src/components"],
+      "@types": ["./src/types/moviesTypes.ts"]
     }
   },
   "exclude": ["node_modules", "babel.config.js", "metro.config.js"],
