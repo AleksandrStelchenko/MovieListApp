@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { HomeScreenContainer } from "@screens/HomeScreen";
+import { HomeScreenContainer } from "@screens/Home";
 import { MainStackParamList } from "@navigation/types";
 import { Screens } from "@navigation/routes";
-import { MovieDetailsContainer } from "@screens/MovieDetailsScreen";
+import { MovieDetailsContainer } from "@screens/MovieDetails";
 
 export const MainNavigator = (): ReactElement => {
   const { Navigator, Screen } =
