@@ -12,7 +12,7 @@ export const PostersItem: React.FC<PostersItemProps> = (props) => {
   const { item } = props;
   return (
     <View>
-      <ImageContainer style={styles.image} path={item.file_path} />
+      <ImageContainer loader style={styles.image} path={item.file_path} />
     </View>
   );
 };

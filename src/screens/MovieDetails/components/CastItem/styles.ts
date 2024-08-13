@@ -8,7 +8,6 @@ export const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    flex: 1,
     textAlign: "center",
     paddingTop: 8,
   },

@@ -20,7 +20,6 @@ export const TitleCard: React.FC<TitleCardProps> = (props) => {
     <Card>
       <View style={styles.headerRowContainer}>
         <ImageContainer
-          original
           resizeMode={"cover"}
           path={image}
           style={styles.image}

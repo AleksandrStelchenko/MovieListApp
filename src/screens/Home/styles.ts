@@ -3,31 +3,25 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60,
+    paddingTop: 70,
+    paddingHorizontal: 16,
   },
   input: {
+    color: "white",
     borderRadius: 10,
     borderWidth: 1,
+    backgroundColor: "rgba(0.5, 0.5, 0.5, 0.6)",
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   listContainer: {
     paddingVertical: 40,
-    gap: 20,
+    gap: 16,
   },
   card: {
-    flexDirection: "row",
-    backgroundColor: "white",
-    marginHorizontal: 20,
-    borderRadius: 16,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.18,
-    shadowRadius: 4.6,
-    elevation: 5,
+    flex: 1,
   },
-  image: {
-    height: 300,
-    aspectRatio: 670 / 1005,
-    borderRadius: 16,
-    overflow: "hidden",
+  columnWrapper: {
+    gap: 16,
   },
 });

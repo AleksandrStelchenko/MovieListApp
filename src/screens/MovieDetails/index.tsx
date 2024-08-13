@@ -8,5 +8,11 @@ export const MovieDetailsContainer = () => {
   const { params } =
     useRoute<RouteProp<MainStackParamList, Screens.MovieDetails>>();
 
-  return <MovieDetailsScreen details={params.data} />;
+  return (
+    <MovieDetailsScreen
+      details={params.data}
+      backgroundPath={params.backgroundPath}
+      posters={params.posters}
+    />
+  );
 };

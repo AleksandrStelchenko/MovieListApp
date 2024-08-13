@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { ImageBackground, ScrollView } from "react-native";
+import React from "react";
+import { ScrollView } from "react-native";
 import { ImageEntity, MovieDetails } from "@types";
 import { styles } from "@screens/MovieDetails/styles";
 import {
@@ -8,45 +8,25 @@ import {
   Posters,
   TitleCard,
 } from "@screens/MovieDetails/components";
+import FastImage from "react-native-fast-image/src";
 
 type MovieDetailsScreenProps = {
   details?: MovieDetails;
+  posters: ImageEntity[];
+  backgroundPath: string;
 };
 
 export const MovieDetailsScreen: React.FC<MovieDetailsScreenProps> = (
   props,
 ) => {
-  const { details } = props;
-  const [posters, setPosters] = useState<ImageEntity[] | null>(null);
-
-  useEffect(() => {
-    const postersWithoutText = details?.images.posters?.filter(
-      (item) => item.iso_639_1 == null,
-    );
-    const postersWithEngText = details?.images.posters?.filter(
-      (item) => item.iso_639_1 == "en",
-    );
-
-    if (postersWithoutText && postersWithoutText.length > 0) {
-      setPosters(postersWithoutText);
-      return;
-    }
-
-    if (postersWithEngText && postersWithEngText.length > 0) {
-      setPosters(postersWithEngText);
-      return;
-    }
-
-    setPosters(null);
-  }, [details]);
+  const { details, backgroundPath, posters } = props;
 
   return (
     <>
-      <ImageBackground
+      <FastImage
+        style={styles.imageBackground}
         source={{
-          uri: `https://image.tmdb.org/t/p/w500/${
-            posters ? posters[0].file_path : details?.poster_path
-          }`,
+          uri: `https://image.tmdb.org/t/p/w500${backgroundPath}`,
         }}
       >
         <ScrollView
@@ -65,7 +45,7 @@ export const MovieDetailsScreen: React.FC<MovieDetailsScreenProps> = (
           <Cast data={details?.credits?.cast} />
           <Posters data={posters} />
         </ScrollView>
-      </ImageBackground>
+      </FastImage>
     </>
   );
 };
