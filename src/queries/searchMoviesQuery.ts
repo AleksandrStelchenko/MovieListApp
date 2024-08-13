@@ -12,5 +12,11 @@ export const useSearchMovies = (query: string) => {
       if (allPages.length < lastPage.total_pages) return allPages.length + 1;
       return undefined;
     },
+    throwOnError: (error) => {
+      console.log(error);
+      console.log("er");
+      console.log("qr");
+      return false;
+    },
   });
 };
