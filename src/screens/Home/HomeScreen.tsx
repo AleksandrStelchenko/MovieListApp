@@ -41,10 +41,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = (props) => {
       source={require("../../resources/images/background.jpeg")}
       style={styles.container}
     >
-      {(searchedText && isSearchLoading) ||
-        (movies?.length == 0 && !searchedText && isMoviesLoading && (
-          <Loader fullScreen />
-        ))}
+      {((searchedText && isSearchLoading) ||
+        (movies?.length == 0 && !searchedText && isMoviesLoading)) && (
+        <Loader fullScreen />
+      )}
 
       <TextInput
         style={styles.input}

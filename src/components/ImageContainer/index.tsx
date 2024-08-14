@@ -17,9 +17,7 @@ export const ImageContainer: React.FC<ImageContainerProps> = (props) => {
     <View style={rest.style}>
       <FastImage
         defaultSource={
-          !path
-            ? require("../../resources/images/unknownPerson.jpg")
-            : require("../../resources/images/errorImage.png")
+          !path && require("../../resources/images/unknownPerson.jpg")
         }
         onLoadStart={() => {
           setLoading(true);
