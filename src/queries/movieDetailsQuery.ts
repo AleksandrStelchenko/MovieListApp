@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchMovieDetails } from "@api";
+import { Alert } from "react-native";
 
 export const useMovieDetails = (id: number | null) => {
   return useQuery({
@@ -7,9 +8,10 @@ export const useMovieDetails = (id: number | null) => {
     queryFn: () => fetchMovieDetails(id as number),
     enabled: !!id,
     throwOnError: (error) => {
-      console.log(error);
-      console.log("er");
-      console.log("qr");
+      Alert.alert(
+        "Error",
+        `The application was unable to get the movie data due to this error: ${error.message}`,
+      );
       return false;
     },
   });

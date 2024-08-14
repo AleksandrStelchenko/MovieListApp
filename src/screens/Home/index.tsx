@@ -17,9 +17,16 @@ export const HomeScreenContainer = () => {
   const [preloadInProgress, setPreloadInProgress] = useState(false);
   const [clickDisabled, setClickDisabled] = useState(false);
 
-  const { data: moviesData, fetchNextPage: nextMoviePage } = useMovies();
-  const { data: searchedData, fetchNextPage: nextSearchPage } =
-    useSearchMovies(searchedText);
+  const {
+    data: moviesData,
+    fetchNextPage: nextMoviePage,
+    isLoading: isMoviesLoading,
+  } = useMovies();
+  const {
+    data: searchedData,
+    fetchNextPage: nextSearchPage,
+    isLoading: isSearchLoading,
+  } = useSearchMovies(searchedText);
   const { data } = useMovieDetails(selectedId);
 
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
@@ -123,6 +130,8 @@ export const HomeScreenContainer = () => {
       onCardPress={onCardPress}
       preloadInProgress={preloadInProgress}
       selectedId={selectedId}
+      isSearchLoading={isSearchLoading}
+      isMoviesLoading={isMoviesLoading}
     />
   );
 };

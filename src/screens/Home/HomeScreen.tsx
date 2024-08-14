@@ -3,6 +3,7 @@ import { FlatList, ImageBackground, TextInput } from "react-native";
 import { Movie } from "@types";
 import { styles } from "@screens/Home/styles";
 import { MovieItem } from "@screens/Home/components/MovieItem";
+import { Loader } from "@components";
 
 type HomeScreenProps = {
   movies?: Movie[];
@@ -15,6 +16,8 @@ type HomeScreenProps = {
   onCardPress: (item: Movie) => void;
   preloadInProgress: boolean;
   selectedId: number | null;
+  isSearchLoading: boolean;
+  isMoviesLoading: boolean;
 };
 
 export const HomeScreen: React.FC<HomeScreenProps> = (props) => {
@@ -29,6 +32,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = (props) => {
     onCardPress,
     preloadInProgress,
     selectedId,
+    isMoviesLoading,
+    isSearchLoading,
   } = props;
 
   return (
@@ -36,13 +41,17 @@ export const HomeScreen: React.FC<HomeScreenProps> = (props) => {
       source={require("../../resources/images/background.jpeg")}
       style={styles.container}
     >
+      {(searchedText && isSearchLoading) ||
+        (movies?.length == 0 && !searchedText && isMoviesLoading && (
+          <Loader fullScreen />
+        ))}
+
       <TextInput
         style={styles.input}
         placeholder={"Search"}
         placeholderTextColor={"white"}
         onChangeText={setSearchedText}
       />
-
       <FlatList
         data={searchedText ? searchedMovies : movies}
         numColumns={2}

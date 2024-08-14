@@ -1,5 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchMoviesByTitle } from "@api";
+import { Alert } from "react-native";
 
 export const useSearchMovies = (query: string) => {
   return useInfiniteQuery({
@@ -13,9 +14,10 @@ export const useSearchMovies = (query: string) => {
       return undefined;
     },
     throwOnError: (error) => {
-      console.log(error);
-      console.log("er");
-      console.log("qr");
+      Alert.alert(
+        "Error",
+        `The application was unable to get the movie data due to this error: ${error.message}`,
+      );
       return false;
     },
   });
