@@ -57,9 +57,13 @@ export const HomeScreen: React.FC<HomeScreenProps> = (props) => {
         numColumns={2}
         columnWrapperStyle={styles.columnWrapper}
         contentContainerStyle={styles.listContainer}
+        onEndReachedThreshold={0}
         onEndReached={() => {
           searchedText ? nextSearchPage() : nextMoviesPage();
         }}
+        ListFooterComponent={() => (
+          <Loader animating={isMoviesLoading} containerStyle={styles.loader} />
+        )}
         renderItem={({ item }) => (
           <MovieItem
             selectedId={selectedId}

@@ -13,9 +13,10 @@ export const useMovies = () => {
       return undefined;
     },
     throwOnError: (error) => {
-      console.log(error);
-      console.log("er");
-      console.log("qr");
+      // Alert.alert(
+      //   "Error",
+      //   `The application was unable to get the movie data due to this errorasdasd: ${error.message}`,
+      // );
       return false;
     },
   });

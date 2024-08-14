@@ -16,7 +16,7 @@ export const useSearchMovies = (query: string) => {
     throwOnError: (error) => {
       Alert.alert(
         "Error",
-        `The application was unable to get the movie data due to this error: ${error.message}`,
+        `The application was unable to get the data it was looking for due to this error: ${error.message}`,
       );
       return false;
     },

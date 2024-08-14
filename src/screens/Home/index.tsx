@@ -20,7 +20,7 @@ export const HomeScreenContainer = () => {
   const {
     data: moviesData,
     fetchNextPage: nextMoviePage,
-    isLoading: isMoviesLoading,
+    isFetching,
   } = useMovies();
   const {
     data: searchedData,
@@ -131,7 +131,7 @@ export const HomeScreenContainer = () => {
       preloadInProgress={preloadInProgress}
       selectedId={selectedId}
       isSearchLoading={isSearchLoading}
-      isMoviesLoading={isMoviesLoading}
+      isMoviesLoading={isFetching}
     />
   );
 };

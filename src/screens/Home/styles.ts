@@ -24,4 +24,10 @@ export const styles = StyleSheet.create({
   columnWrapper: {
     gap: 16,
   },
+  loader: {
+    backgroundColor: "transparent",
+    position: undefined,
+    height: undefined,
+    width: undefined,
+  },
 });
