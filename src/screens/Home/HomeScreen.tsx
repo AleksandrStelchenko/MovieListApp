@@ -2,8 +2,8 @@ import React from "react";
 import { FlatList, ImageBackground, TextInput } from "react-native";
 import { Movie } from "@types";
 import { styles } from "@screens/Home/styles";
-import { MovieItem } from "@screens/Home/components/MovieItem";
 import { Loader } from "@components";
+import { EmptyComponent, MovieItem } from "@screens/Home/components";
 
 type HomeScreenProps = {
   movies?: Movie[];
@@ -53,6 +53,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = (props) => {
         onChangeText={setSearchedText}
       />
       <FlatList
+        style={{ flex: 1 }}
         data={searchedText ? searchedMovies : movies}
         numColumns={2}
         columnWrapperStyle={styles.columnWrapper}
@@ -61,6 +62,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = (props) => {
         onEndReached={() => {
           searchedText ? nextSearchPage() : nextMoviesPage();
         }}
+        ListEmptyComponent={() =>
+          !isSearchLoading && !isMoviesLoading ? <EmptyComponent /> : null
+        }
         ListFooterComponent={() => (
           <Loader animating={isMoviesLoading} containerStyle={styles.loader} />
         )}
