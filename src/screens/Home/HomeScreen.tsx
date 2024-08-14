@@ -53,7 +53,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = (props) => {
         onChangeText={setSearchedText}
       />
       <FlatList
-        style={{ flex: 1 }}
         data={searchedText ? searchedMovies : movies}
         numColumns={2}
         columnWrapperStyle={styles.columnWrapper}
