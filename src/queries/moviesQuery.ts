@@ -12,12 +12,5 @@ export const useMovies = () => {
       if (allPages.length < lastPage.total_pages) return allPages.length + 1;
       return undefined;
     },
-    throwOnError: (error) => {
-      // Alert.alert(
-      //   "Error",
-      //   `The application was unable to get the movie data due to this errorasdasd: ${error.message}`,
-      // );
-      return false;
-    },
   });
 };
